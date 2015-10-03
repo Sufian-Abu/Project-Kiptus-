@@ -1,0 +1,415 @@
+
+///////////////        sum of all the income, user_id=1              ////////////////////////////////////////////////////
+Select sum(income.tution+ income.job+income.teaching+income.others)
+From user
+INNER JOIN income on user.user_id=income.income_id
+Where user.user_id=1;
+
+
+///////////////        sum of all the expenditure, user_id=1              ////////////////////////////////////////////////////
+2.Select sum(expenditure.house_bill+expenditure.water_bill+expenditure.electricity_bill+expenditure.garage_bill+expenditure.servent_bill+expenditure.gas_bill+expenditure.mobile_bill+
+expenditure.travel_bill+expenditure.food_bill+expenditure.cloth_bill+expenditure.study_bill+expenditure.refreshment_bill+expenditure.other_bill)
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id 
+Where user.user_id=1;
+
+
+//////////////////////// income - expenditure of user_id=1 /////////////////////////////////////////////
+
+
+3.Select ((Select sum(income.tution+ income.job+income.teaching+income.others)
+From user
+INNER JOIN income on user.user_id=income.income_id
+Where user.user_id=1)-(Select sum(expenditure.house_bill+expenditure.water_bill+expenditure.electricity_bill+expenditure.garage_bill+expenditure.servent_bill+expenditure.gas_bill+expenditure.mobile_bill+
+expenditure.travel_bill+expenditure.food_bill+expenditure.cloth_bill+expenditure.study_bill+expenditure.refreshment_bill+expenditure.other_bill)
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id 
+Where user.user_id=1))
+from user
+INNER JOIN income on user.user_id=income.income_id
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id 
+Where user.user_id=1;
+////////////////////////////////////////////////////////
+
+
+
+Select budget.house_bill-expenditure.house_bill,budget.water-expenditure.water_bill,budget.electricity-expenditure.electricity_bill,budget.garage-expenditure.garage_bill,budget.servent-expenditure.servent_bill,budget.gas-expenditure.gas_bill,budget.mobile-expenditure.mobile_bill,
+budget.travel-expenditure.travel_bill,budget.food-expenditure.food_bill,budget.cloth-expenditure.cloth_bill,budget.study-expenditure.study_bill,budget.refreshment-expenditure.refreshment_bill,budget.other-expenditure.other_bill
+From expenditure
+INNER JOIN budget on expenditure.exp_monthly_id=budget.budget_id 
+Where exp_monthly_id=1;
+/////////////////////////////////////////////////////////////////////
+
+
+
+Select budget.house_bill-expenditure.house_bill
+From expenditure
+INNER JOIN budget on expenditure.exp_monthly_id=budget.budget_id 
+Where exp_monthly_id=1;
+/////////////////////////////////////////////////////
+
+
+Select budget.water-expenditure.water_bill
+From expenditure
+INNER JOIN budget on expenditure.exp_monthly_id=budget.budget_id 
+Where exp_monthly_id=1;
+/////////////////////////////////
+
+
+Select budget.electricity-expenditure.electricity_bill
+From expenditure
+INNER JOIN budget on expenditure.exp_monthly_id=budget.budget_id 
+Where exp_monthly_id=1;
+////////////////////////
+
+
+Select budget.garage-expenditure.garage_bill
+From expenditure
+INNER JOIN budget on expenditure.exp_monthly_id=budget.budget_id 
+Where exp_monthly_id=1;
+//////////////////////////
+
+
+Select budget.servent-expenditure.servent_bill
+From expenditure
+INNER JOIN budget on expenditure.exp_monthly_id=budget.budget_id 
+Where exp_monthly_id=1;
+////////////////////////////
+
+
+Select budget.gas-expenditure.gas_bill
+From expenditure
+INNER JOIN budget on expenditure.exp_monthly_id=budget.budget_id 
+Where exp_monthly_id=1;
+/////////////////////////////////
+
+
+Select budget.mobile-expenditure.mobile_bill
+From expenditure
+INNER JOIN budget on expenditure.exp_monthly_id=budget.budget_id 
+Where exp_monthly_id=1;
+///////////////////////////////
+
+
+Select budget.travel-expenditure.travel_bill
+From expenditure
+INNER JOIN budget on expenditure.exp_monthly_id=budget.budget_id 
+Where exp_monthly_id=1;
+///////////////////////////
+
+
+Select budget.food-expenditure.food_bill
+From expenditure
+INNER JOIN budget on expenditure.exp_monthly_id=budget.budget_id 
+Where exp_monthly_id=1;
+/////////////////////////////////////////////
+
+
+Select budget.cloth-expenditure.cloth_bill
+From expenditure
+INNER JOIN budget on expenditure.exp_monthly_id=budget.budget_id 
+Where exp_monthly_id=1;
+/////////////////////////
+
+
+
+Select budget.study-expenditure.study_bill
+From expenditure
+INNER JOIN budget on expenditure.exp_monthly_id=budget.budget_id 
+Where exp_monthly_id=1;
+////////////////////////////
+
+
+Select budget.refreshment-expenditure.refreshment_bill
+From expenditure
+INNER JOIN budget on expenditure.exp_monthly_id=budget.budget_id 
+Where exp_monthly_id=1;
+///////////////////////////////
+
+
+Select budget.other-expenditure.other_bill
+From expenditure
+INNER JOIN budget on expenditure.exp_monthly_id=budget.budget_id 
+Where exp_monthly_id=1;
+//////////////////////////////////////////////////
+
+
+
+////////// ALL USERS EXPEND////////////////////////////////////////////
+4.Select user.user_id,user.user_name,expenditure.house_bill
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id
+Where expenditure.house_bill>15000
+limit 1;
+/////////////
+5.Select user.user_id,user.user_name,expenditure.electricity_bill
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id
+Where expenditure.electricity_bill>500
+limit 1;
+/////////////////////////////////
+
+6.Select user.user_id,user.user_name,expenditure.water_bill
+From user
+
+
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id
+Where expenditure.water_bill>200
+limit 1;
+//////////////////////////////////
+7.Select user.user_id,user.user_name,expenditure.servent_bill
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id
+Where expenditure.servent_bill>300
+limit 1;
+///////////////////////////////////////
+
+8.Select user.user_id,user.user_name,expenditure.mobile_bill
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id
+Where expenditure.mobile_bill>300
+limit 1;
+//////////////////////////////////////////////
+
+9.Select user.user_id,user.user_name,expenditure.travel_bill
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id
+Where expenditure.travel_bill>700
+limit 1;
+///////////////
+
+10.Select user.user_id,user.user_name,expenditure.food_bill
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id
+Where expenditure.food_bill>7000
+limit 1;
+//////////////////////////////////////
+
+11.Select user.user_id,user.user_name,expenditure.cloth_bill
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id
+Where expenditure.cloth_bill>2000
+limit 1;
+/////////////////////////////////////////
+12.Select user.user_id,user.user_name,expenditure.study_bill
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id
+Where expenditure.study_bill>5000
+limit 1;
+////////////////////////////////////////
+13.Select user.user_id,user.user_name,expenditure.refreshment_bill
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id
+Where expenditure.refreshment_bill>1000
+limit 1;
+///////////////////////////END OF  USER WHO EXPEND MORE THAN..... ////////////
+
+////////////////ALL USERS JOB ///////////////////
+1.Select Count(user.user_profession)
+From user 
+Where  user.user_area='mohakali' and
+user.user_profession='student';
+////////////////////////////////////////////////
+
+2.Select user.user_id,user.user_name,income.job
+From user
+INNER JOIN income on user.user_id=income.income_id
+Where income.job>10000
+limit 1;
+//////////
+3.Select user.user_id,user.user_name,income.tution
+From user 
+INNER JOIN  income on user.user_id=income.income_id
+Where income.tution>5000
+limit 1;
+/////
+4.
+Select user.user_id,user.user_name,income.teaching
+From user 
+Inner join income on user.user_id=income.income_id
+Where income.teaching>8000
+limit 1 ;
+///////
+5.Select user.user_id,user.user_name,income.job
+From user
+INNER JOIN income on user.user_id=income.income_id
+Where income.job<10000
+limit 1;
+/////
+6.Select user.user_id,user.user_name,income.tution
+From user 
+INNER JOIN  income on user.user_id=income.income_id
+Where income.tution<5000
+limit 1 ;
+///
+7.Select user.user_id,user.user_name,income.teaching
+From user 
+Inner join income on user.user_id=income.income_id
+Where income.teaching<8000
+limit 1 ;
+///////////
+
+///Profession based/////////////
+Select (Select Count(user.user_profession)
+From user
+Where user.user_area='mohakali' and user.user_profession='student';
+),(Select Count(user.user_profession)
+From user
+Where user.user_area='mohakali' and user.user_profession='job';
+);
+3.Select Count(user.user_profession)
+From user
+Where user.user_area='mohakali' and user.user_profession='Programmer';
+4.Select Count(user.user_profession)
+From user
+Where user.user_area='mohakali' and user.user_profession='govt_job';
+5.Select Count(user.user_profession)
+From user
+Where user.user_area='mohakali' and user.user_profession='Developer';
+6.Select Count(user.user_profession)
+From user
+Where user.user_area='mohakali' and user.user_profession='Technical_officer';
+7.Select Count(user.user_profession)
+From user
+Where user.user_area='gulshan' and user.user_profession='student';
+8.Select Count(user.user_profession)
+From user
+Where user.user_area='gulshan' and user.user_profession='job';
+9.Select Count(user.user_profession)
+From user
+Where user.user_area='gulshan' and user.user_profession='Programmer';
+10.Select Count(user.user_profession)
+From user
+Where user.user_area='gulshan' and user.user_profession='govt_job';
+11.Select Count(user.user_profession)
+From user
+Where user.user_area='gulshan' and user.user_profession='Developer';
+12.Select Count(user.user_profession)
+From user
+Where user.user_area='gulshan' and user.user_profession='Technical_officer';
+13.Select Count(user.user_profession)
+From user
+Where user.user_area='mirpur' and user.user_profession='student';
+14.Select Count(user.user_profession)
+From user
+Where user.user_area='mirpur' and user.user_profession='job';
+15.Select Count(user.user_profession)
+From user
+Where user.user_area='mirpur' and user.user_profession='Programmer';
+16.Select Count(user.user_profession)
+From user
+Where user.user_area='mirpur' and user.user_profession='govt_job';
+17.Select Count(user.user_profession)
+From user
+Where user.user_area='mirpur' and user.user_profession='Developer';
+18.Select Count(user.user_profession)
+From user
+Where user.user_area='mirpur' and user.user_profession='Technical_officer';
+19.Select Count(user.user_profession)
+From user
+Where user.user_area='malibag' and user.user_profession='student';
+20.Select Count(user.user_profession)
+From user
+Where user.user_area='malibag' and user.user_profession='job';
+21.Select Count(user.user_profession)
+From user
+Where user.user_area='malibag' and user.user_profession='Programmer';
+22.Select Count(user.user_profession)
+From user
+Where user.user_area='malibag' and user.user_profession='govt_job';
+23.Select Count(user.user_profession)
+From user
+Where user.user_area='malibag' and user.user_profession='Developer';
+24.Select Count(user.user_profession)
+From user
+Where user.user_area='malibag' and user.user_profession='Technical_officer';
+25.Select Count(user.user_profession)
+From user
+Where user.user_area='mirpur10' and user.user_profession='student';
+26.Select Count(user.user_profession)
+From user
+Where user.user_area='mirpur10' and user.user_profession='job';
+27.Select Count(user.user_profession)
+From user
+Where user.user_area='mirpur10' and user.user_profession='Programmer';
+28.Select Count(user.user_profession)
+From user
+Where user.user_area='mirpur10' and user.user_profession='govt_job';
+29.Select Count(user.user_profession)
+From user
+Where user.user_area='mirpur10' and user.user_profession='Developer';
+30.Select Count(user.user_profession)
+From user
+Where user.user_area='mirpur10' and user.user_profession='Technical_officer';
+
+///////Who spent max in which khat/////////////
+1.Select user.user_id,user.user_name,Max(expenditure.house_bill)
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id;
+2.Select user.user_id,user.user_name,Max(expenditure.water_bill)
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id;
+3.Select user.user_id,user.user_name,Max(expenditure.electricity_bill)
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id;
+4.Select user.user_id,user.user_name,Max(expenditure.garage_bill)
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id;
+5.Select user.user_id,user.user_name,Max(servent.water_bill)
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id;
+6.Select user.user_id,user.user_name,Max(expenditure.gas_bill)
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id;
+7.Select user.user_id,user.user_name,Max(expenditure.mobile_bill)
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id;
+8.Select user.user_id,user.user_name,Max(expenditure.travel_bill)
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id;
+9.Select user.user_id,user.user_name,Max(expenditure.food_bill)
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id;
+10.Select user.user_id,user.user_name,Max(expenditure.cloth_bill)
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id;
+11.Select user.user_id,user.user_name,Max(expenditure.study_bill)
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id;
+12.Select user.user_id,user.user_name,Max(expenditure.refreshment_bill)
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id;
+13.Select user.user_id,user.user_name,Max(expenditure.other_bill)
+From user
+INNER JOIN expenditure on user.user_id=expenditure.exp_monthly_id;
+//////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
